@@ -1,12 +1,15 @@
+# $Id$
 package File::Find::Rule::MMagic;
 use strict;
-use vars qw/$VERSION @EXPORT/;
+
 use File::Find::Rule;
+use base qw( File::Find::Rule );
+use vars qw( $VERSION @EXPORT );
+@EXPORT  = @File::Find::Rule::EXPORT;
+$VERSION = '0.02';
+
 use File::MMagic;
 use Text::Glob qw(glob_to_regex);
-use base qw( File::Find::Rule Exporter );
-$VERSION = '0.01';
-@EXPORT = @File::Find::Rule::EXPORT; # yes, re-export
 
 sub File::Find::Rule::magic {
     my $self = shift()->_force_object;
